@@ -1,7 +1,9 @@
 ﻿using API_BD.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace API_BD.Controllers
 {
@@ -34,9 +36,14 @@ namespace API_BD.Controllers
          */
         [HttpGet]
         [Route("Lista")]
+        [Authorize]
         public IActionResult Lista()
         {
             List<Contacto> lista = new List<Contacto>();
+
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            var valid = FuncionesVarias.ValidarToken(identity);
 
             try
             {
