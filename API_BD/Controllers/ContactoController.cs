@@ -34,6 +34,7 @@ namespace API_BD.Controllers
          * IActionResult representa los resultados de un método
          * Se retorna un StatusCode para mensajes HTTPS
          */
+
         [HttpGet]
         [Route("Lista")]
         [Authorize]
@@ -47,7 +48,6 @@ namespace API_BD.Controllers
 
             try
             {
-
                 /*
                  * La tabla Contactos contiene una clave foránea relacionada con
                  * la tabla tipo, por lo que dentro del modelo se genera este enlace 

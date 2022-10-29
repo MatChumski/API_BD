@@ -43,7 +43,7 @@ namespace API_BD.Controllers
 
                 if (objUser == null)
                 {
-                    return NotFound();
+                    return NotFound("Credenciales Inválidas");
                 }
 
                 var jwt = _configuration.GetSection("Jwt").Get<Jwt>();
